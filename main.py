@@ -15,15 +15,18 @@ def requirements():
     text = "<br>".join(text)
     return text
 
+
+
+
 @app.route("/generate-users/", methods=['GET'])
 def generate_users():
-    count = request.args.get("count", "100", type=int)
+    count = request.args.get("count", 100, type=int)
     lst = []
     for _ in range(count):
         name = f'{fake.name()}: {fake.email()}'
         lst.append(name)
     lst = "<br>".join(lst)
-    return f"<p>{lst}</p>"
+    return lst
 
 
 
@@ -39,8 +42,10 @@ def mean():
     return f"<p>Average_height = {average_height} centimeter.<br>Average_weight = {average_weight} kilograms. </p>"
 
 
-
-
-
-
+@app.route("/space/")
+def space():
+    r = requests.get('http://api.open-notify.org/astros.json')
+    b = r.json()
+    in_space = b.get('number')
+    return f"<p>There are currently {in_space} people in space!</p>"
 
