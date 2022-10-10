@@ -9,11 +9,19 @@ from flaskr.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-@bp.route('/names')
+@bp.route('/names/')
 def names():
     db = get_db()
     names_ = db.execute(
         'SELECT COUNT(DISTINCT artist) FROM tracks'
     )
     return names_
+
+@bp.route('/tracks/')
+def tracks():
+    db = get_db()
+    tracks_ = db.execute(
+        'SELECT COUNT(id) FROM tracks'
+    )
+    return tracks_
 
