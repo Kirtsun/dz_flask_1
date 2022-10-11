@@ -47,7 +47,12 @@ def tracks_sec():
     tracks_title = db.execute(
         'SELECT title, lenght FROM tracks'
     ).fetchall()
-
     return render_template('auth/tracks_sec.html', tracks_title=tracks_title)
 
-
+@bp.route('/tracks-sec/statistics')
+def statistics():
+    db = get_db()
+    statistics = db.execute(
+        'SELECT AVG(lenght) as avg, SUM(lenght) as sum FROM tracks'
+    ).fetchall()
+    return render_template('auth/statistics.html', statistics=statistics)

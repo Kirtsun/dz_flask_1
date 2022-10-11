@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<section class="content">
+  <header>
+    {% block header %}Statistics{% endblock %}
+
+  {% block content %}
+  {% for post in statistics %}
+    <article class="sec">
+      <header>
+        <div>
+          <h1>среднее значение {{ post['avg'] }}сек<br> общее значение  {{post['sum']}}сек</h1>
+        </div>
+      </header>
+    </article>
+  {% endfor %}
+{% endblock %}
