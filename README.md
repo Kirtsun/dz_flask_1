@@ -12,5 +12,6 @@ Flask is almost subdued
 # Dz_Flask_2
 In branch 2, I've got a Flask-based mini app.
 To check it, you need to run the commands:
-1. flask --app flaskr fill-dp
-2. flask --app flaskr run
+1. flask --app flaskr init-dp 
+2. flask --app flaskr fill-dp
+3. flask --app flaskr run
