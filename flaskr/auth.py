@@ -31,15 +31,7 @@ def tracks():
 
 @bp.route('/tracks/<genre>')
 def tracks_genre():
-    genre = request.form(['genre'])
-    db = get_db()
-    trackss = db.execute(
-        'SELECT COUNT(id) FROM tracks WHERE genre =?', (genre, )
-    ).fetchone()
-    for res in trackss:
-        trackss_ = res
 
-    return render_template('auth/genre.html', trackss=trackss_)
 
 @bp.route('/tracks-sec/')
 def tracks_sec():

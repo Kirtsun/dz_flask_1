@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-<section class="content">
-  <header>
-    {% block header %}Number of genre{% endblock %}
+{% block header %}
+  <h1>{% block title %}Genre{% endblock %}</h1>
+{% endblock %}
 
-  </header>
-
-  {% block content %} Number of tracks in the database = {{tracks_title}}.{% endblock %}
-</section>
+{% block content %}
+    <label for="tdfg">Genre</label>
+    <input name="genre" id="username" required>
+    <input type="submit" value="GO">
+{% endblock %}
