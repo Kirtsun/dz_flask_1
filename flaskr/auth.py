@@ -49,7 +49,7 @@ def tracks_sec():
     ).fetchall()
     return render_template('auth/tracks_sec.html', tracks_title=tracks_title)
 
-@bp.route('/tracks-sec/statistics')
+@bp.route('/tracks-sec/statistics/')
 def statistics():
     db = get_db()
     statistics = db.execute(
