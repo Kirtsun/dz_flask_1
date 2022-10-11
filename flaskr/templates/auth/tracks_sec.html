@@ -1,15 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'blog.html' %}
 
-<section class="content">
   <header>
-    {% block header %}Tracks sec{% endblock %}
-
+    {% block header %}<h1>Tracks sec:</h1>{% endblock %}
+  </header>
   {% block content %}
   {% for post in tracks_title %}
     <article class="sec">
-      <header>
         <div>
-          <h1>{{ post['title'] }} = {{post['lenght']}}</h1>
+          <p>{{ post['title'] }} = {{post['lenght']}}</p>
         </div>
       </header>
     </article>

@@ -7,7 +7,12 @@ from flask import (
 
 from flaskr.db import get_db
 
-bp = Blueprint('auth', __name__, url_prefix='/auth')
+bp = Blueprint('auth', __name__)
+
+
+@bp.route('/')
+def index():
+    return render_template('auth/index.html')
 
 @bp.route('/names/')
 def names():
@@ -30,8 +35,12 @@ def tracks():
     return render_template('auth/tracks.html', tracks_=tracks_number)
 
 @bp.route('/tracks/<genre>')
-def tracks_genre():
-
+def genre(genre):
+    db = get_db()
+    count = db.execute(
+        'SELECT COUNT(*) FROM tracks WHERE genre = ?', (genre,)
+    ).fetchone()
+    return render_template('auth/genre.html', count=count)
 
 @bp.route('/tracks-sec/')
 def tracks_sec():

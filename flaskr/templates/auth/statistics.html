@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'blog.html' %}
 
 <section class="content">
   <header>
-    {% block header %}Statistics{% endblock %}
+    {% block header %}<h1>Statistics</h1>{% endblock %}
 
   {% block content %}
   {% for post in statistics %}
     <article class="sec">
       <header>
         <div>
-          <h1>среднее значение {{ post['avg'] }}сек<br> общее значение  {{post['sum']}}сек</h1>
+          <p>среднее значение {{ post['avg'] }}сек<br> общее значение  {{post['sum']}}сек</p>
         </div>
       </header>
     </article>
