@@ -24,8 +24,10 @@ def tracks():
     db = get_db()
     tracks_ = db.execute(
         'SELECT COUNT(id) FROM tracks'
-    )
-    return render_template('auth/tracks.html', tracks_=tracks_)
+    ).fetchone()
+    for res in tracks_:
+        tracks_number = res
+    return render_template('auth/tracks.html', tracks_=tracks_number)
 
 @bp.route('/tracks/<genre>')
 def tracks_genre():
