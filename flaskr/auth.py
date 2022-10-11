@@ -35,9 +35,19 @@ def tracks_genre():
     db = get_db()
     trackss = db.execute(
         'SELECT COUNT(id) FROM tracks WHERE genre =?', (genre, )
-    )
+    ).fetchone()
+    for res in trackss:
+        trackss_ = res
 
-    return render_template('auth/genre.html', trackss=trackss)
+    return render_template('auth/genre.html', trackss=trackss_)
 
+@bp.route('/tracks-sec/')
+def tracks_sec():
+    db = get_db()
+    tracks_title = db.execute(
+        'SELECT title, lenght FROM tracks'
+    ).fetchall()
+
+    return render_template('auth/tracks_sec.html', tracks_title=tracks_title)
 
 

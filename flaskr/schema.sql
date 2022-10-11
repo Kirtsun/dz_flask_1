@@ -6,5 +6,5 @@ CREATE TABLE tracks (
   title TEXT NOT NULL,
   artist TEXT NOT NULL,
   genre TEXT NOT NULL,
-  lenght FLOAT NOT NULL
+  lenght INTEGER NOT NULL
 );
