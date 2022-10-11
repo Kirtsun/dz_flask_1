@@ -1,0 +1,10 @@
+{% extends 'blog.html' %}
+
+<section class="content">
+  <header>
+    {% block header %}<h1>Names unique performers</h1>{% endblock %}
+
+  </header>
+
+  {% block content %}The number of unique performers in this database = {{names_}}.{% endblock %}
+</section>

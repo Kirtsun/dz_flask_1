@@ -1,0 +1,10 @@
+{% extends 'blog.html' %}
+
+<section class="content">
+  <header>
+    {% block header %}<h1>Number of tracks</h1>{% endblock %}
+
+  </header>
+
+  {% block content %} Number of tracks in the database = {{tracks_}}.{% endblock %}
+</section>

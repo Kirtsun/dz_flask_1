@@ -1,0 +1,17 @@
+{% extends 'blog.html' %}
+
+<section class="content">
+  <header>
+    {% block header %}<h1>Statistics</h1>{% endblock %}
+
+  {% block content %}
+  {% for post in statistics %}
+    <article class="sec">
+      <header>
+        <div>
+          <p>Average track time - {{ post['avg'] }} sec<br>Total track time  {{post['sum']}}sec</p>
+        </div>
+      </header>
+    </article>
+  {% endfor %}
+{% endblock %}

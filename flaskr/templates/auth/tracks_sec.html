@@ -1,0 +1,15 @@
+{% extends 'blog.html' %}
+
+  <header>
+    {% block header %}<h1>Tracks sec:</h1>{% endblock %}
+  </header>
+  {% block content %}
+  {% for post in tracks_title %}
+    <article class="sec">
+        <div>
+          <p>{{ post['title'] }} - {{post['lenght']}} sec</p>
+        </div>
+      </header>
+    </article>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'blog.html' %}
+
+{% block header %}
+  <h1>{% block title %}Genre{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+</form>
+    {% for post in count %}
+    <article class="sec">
+      <header>
+        <div>
+          <p>Number of tracks with this genre = {{ post }}</p>
+        </div>
+      </header>
+    </article>
+  {% endfor %}
+{% endblock %}
