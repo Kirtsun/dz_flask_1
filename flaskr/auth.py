@@ -15,7 +15,7 @@ def names():
     names_ = db.execute(
         'SELECT COUNT(DISTINCT artist) FROM tracks'
     )
-    return names_
+    return render_template('auth/names.html', names_=names_)
 
 @bp.route('/tracks/')
 def tracks():
@@ -23,5 +23,16 @@ def tracks():
     tracks_ = db.execute(
         'SELECT COUNT(id) FROM tracks'
     )
-    return tracks_
+    return render_template
+
+@bp.route('/tracks/<genre>')
+def tracks_genre():
+    genre = request.form(['genre'])
+    db = get_db()
+    tracks = db.execute(
+        'SELECT COUNT(id) FROM tracks WHERE genre =?', (genre, )
+    )
+    return render_template('auth/genre.html')
+
+
 
